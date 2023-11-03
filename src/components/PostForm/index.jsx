@@ -1,11 +1,14 @@
 import React, { useState } from 'react';
+import { useAtom } from 'jotai';
+import { postsAtom } from '../../jotai/store.js';
 
-function PostForm({ onPost }) {
+function PostForm() {
   const [content, setContent] = useState('');
+  const [posts, setPosts] = useAtom(postsAtom);
 
   const handlePost = () => {
     if (content.trim() !== '') {
-      onPost(content);
+      setPosts([...posts, content]);
       setContent('');
     }
   }

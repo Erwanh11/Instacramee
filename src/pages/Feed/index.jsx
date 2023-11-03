@@ -1,18 +1,16 @@
-import React, { useState } from 'react';
 import PostForm from '../../components/PostForm';
 import Post from '../../components/Post';
+import { useAtom } from 'jotai';
+import { postsAtom } from '../../jotai/store.js'; 
+
 
 function Feed() {
-  const [posts, setPosts] = useState([]);
-
-  const handlePost = (text) => {
-    setPosts([...posts, text]);
-  }
+  const [posts] = useAtom(postsAtom);
 
   return (
     <div className="feed">
         <h1>Publications</h1>
-        <PostForm onPost={handlePost} />
+        <PostForm />
           {posts.map((text, index) => (
               <Post key={index} text={text} />
           ))}

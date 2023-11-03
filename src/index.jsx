@@ -24,7 +24,7 @@ ReactDOM.render(
         <Header />
         <GlobalStyle />
         <Routes>
-          <Route path="/Feed" element={<Feed />} />
+          <Route path="/" element={<Feed />} />
         </Routes>
     </Router>
   </React.StrictMode>,
